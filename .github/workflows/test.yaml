@@ -24,8 +24,10 @@ jobs:
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_TOKEN }}
       
-    - name: Build and push
-      uses: docker/build-push-action@v6
-      with:
-        push: true
-        tags: 1.0.0
+    - name: 'docker tag'
+      run: docker build -t ${{ secrets.DOCKER_USER }}/newreact:1.0.0 .
+
+    - name: 'docker push'
+      run: 'docker push ${{ secrets.DOCKER_USER }}/newreact:1.0.0'
+
+
