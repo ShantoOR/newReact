@@ -1,0 +1,26 @@
+# values.yaml
+
+replicaCount: 2
+
+image:
+  repository: shaniulshanto80/newreact
+  tag: "latest"
+  pullPolicy: IfNotPresent
+
+service:
+  type: NodePort
+  port: 3000
+
+ingress:
+  enabled: false
+
+
+
+serviceAccount:
+     create: false
+
+autoscaling:
+    enabled: false     
+
+
+imagePullSecrets: regcred
