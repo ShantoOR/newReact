@@ -24,10 +24,10 @@ jobs:
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_TOKEN }}
       
-    - name: 'docker tag'
-      run: docker build -t ${{ secrets.DOCKER_USER }}/newreact:1.0.0 .
+    - name: 'docker build'
+      run: docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/newreact:1.0.0 .
 
     - name: 'docker push'
-      run: 'docker push ${{ secrets.DOCKER_USER }}/newreact:1.0.0'
+      run: 'docker push ${{ secrets.DOCKERHUB_USERNAME }}/newreact:1.0.0'
 
 
